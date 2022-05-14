@@ -19,7 +19,10 @@ body {
 .panels {
   min-height: 100vh;
   overflow: hidden;
+  /*將panels設為flex*/
+  display: flex;
 }
+
 
 .panel {
   background: #6B0F9C;
@@ -36,6 +39,12 @@ body {
   font-size: 20px;
   background-size: cover;
   background-position: center;
+  
+  /*將panel改為flex box*/
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /*設定後文字才會平均分配在上中下*/
 }
 
 .panel1 {
@@ -70,12 +79,38 @@ body {
   font-family: 'Amatic SC', cursive;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
   font-size: 2em;
+  /*改變panel p的位置*/
+  flex:1 0 auto; /*panel p first chile 跟last child會改變位置*/
+  display: flex;
+  justify-content: center;/*panel p 左右置中*/
+  align-items: center; /*panel p 上下置中*/
+}
+
+/*將panel first child改位置*/
+.panel p:nth-child(1) {
+  transform: translateY(-100%);
 }
 
 .panel p:nth-child(2) {
   font-size: 4em;
 }
+/*將panel last child改位置*/
+.panel p:nth-child(3) {
+  transform: translateY(100%);
+}
 
 .panel.open {
+  /*觸發open時，flex程度變為5*/
+  flex: 5;
   font-size: 40px;
+}
+
+/*觸發open時，panel first child改位置*/
+.panel.open p:nth-child(1){
+  transform: translateY(0%);
+}
+
+/*觸發open時，panel last child改位置*/
+.panel.open p:nth-child(3) {
+  transform: translateY(0%);
 }

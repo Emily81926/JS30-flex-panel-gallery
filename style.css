@@ -108,9 +108,11 @@ body {
 /*觸發open時，panel first child改位置*/
 .panel.open p:nth-child(1){
   transform: translateY(0%);
+  transition-delay: 0.5s;
 }
 
 /*觸發open時，panel last child改位置*/
 .panel.open p:nth-child(3) {
   transform: translateY(0%);
+  transition-delay: 0.5s;
 }
